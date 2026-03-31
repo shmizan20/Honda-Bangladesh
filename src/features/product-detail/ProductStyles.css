@@ -1,0 +1,762 @@
+/* FIGMA INSPIRED PRODUCT PAGE */
+:root {
+    --honda-red: #cc0000;
+}
+
+.product-details-page {
+    background: #050505 !important;
+    color: #fff !important;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+.back-btn {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 2000;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- STICKY BIKE ANIMATION --- */
+.sticky-master-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sticky-bike {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 950px;
+}
+
+.sticky-bike-img {
+    width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+}
+
+/* --- HERO SECTION --- */
+.figma-hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: 0 5%;
+}
+
+.figma-hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1600px;
+    margin: 4rem auto 0 auto;
+    gap: 2rem;
+}
+
+.figma-hero-text {
+    flex: 1;
+    max-width: 650px;
+    z-index: 2;
+}
+
+.hero-badge {
+    background: var(--honda-red);
+    color: #fff;
+    padding: 0.4rem 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.hero-title {
+    font-size: 6.5rem;
+    font-weight: 900;
+    margin: 0;
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+}
+
+.hero-tagline {
+    color: var(--honda-red);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+.hero-desc {
+    color: #aaa;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+    max-width: 550px;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 3.5rem;
+    margin-bottom: 3rem;
+}
+
+.stat-item {
+    border-left: 3px solid rgba(255, 255, 255, 0.1);
+    padding-left: 1.5rem;
+}
+
+.stat-item h3 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 0;
+    line-height: 1;
+}
+
+.stat-item h3 span {
+    font-size: 1.2rem;
+    color: var(--honda-red);
+    margin-left: 0.2rem;
+}
+
+.stat-item p {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.explore-btn {
+    background: var(--honda-red);
+    color: #fff;
+    border: none;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+    cursor: pointer;
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+
+.explore-btn:hover {
+    background: #ff1a1a;
+    box-shadow: 0 10px 20px rgba(204, 0, 0, 0.3);
+}
+
+.figma-hero-visual {
+    flex: 1.3;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.drag-hint {
+    background: var(--honda-red);
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 900;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: -5rem; /* Pull bike up to hint */
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.drag-icon {
+    font-size: 1.2rem;
+}
+
+.bike-360-container {
+    width: 100%;
+    max-width: 900px;
+}
+.bike-360-container .interactive-bike-container {
+    height: auto;
+    min-height: 600px;
+}
+
+.scroll-down-hint {
+    position: absolute;
+    bottom: 10rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    z-index: 10;
+    opacity: 0.8;
+}
+
+.scroll-hint-text {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 2px;
+    font-weight: 800;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.mouse {
+    width: 22px;
+    height: 38px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    position: relative;
+}
+
+.wheel {
+    width: 4px;
+    height: 4px;
+    background: var(--honda-red);
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    animation: scroll-wheel 1.6s infinite;
+}
+
+@keyframes scroll-wheel {
+    0% { top: 6px; opacity: 0; }
+    20% { opacity: 1; }
+    100% { top: 22px; opacity: 0; }
+}
+
+.m_scroll_arrows {
+    display: block;
+    width: 8px;
+    height: 8px;
+    transform: rotate(45deg);
+    border-right: 1.5px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.4);
+    margin: -2px 0;
+}
+
+.unu { animation: mouse-scroll 1.6s infinite; animation-delay: 0.1s; }
+.doi { animation: mouse-scroll 1.6s infinite; animation-delay: 0.2s; }
+.trei { animation: mouse-scroll 1.6s infinite; animation-delay: 0.3s; }
+
+@keyframes mouse-scroll {
+    0% { opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { opacity: 0; }
+}
+
+/* --- SECTION 2 & 3: FEATURE --- */
+.figma-feature {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.figma-feature::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(204,0,0,0.05) 0%, rgba(0,0,0,0) 70%);
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.figma-feature:nth-child(even)::before {
+    left: -10%;
+}
+
+.figma-feature:nth-child(odd)::before {
+    right: -10%;
+}
+
+.feature-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.feature-visual {
+    flex: 1.5;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.feature-bike-img {
+    width: 100%;
+    max-width: 950px;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+}
+
+.feature-text {
+    flex: 1;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-text h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.feature-text p {
+    color: #ccc;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.honda-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 500px;
+}
+
+.honda-feature-list li {
+    font-size: 1.1rem;
+    color: #cccccc;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.honda-feature-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    background: var(--honda-red);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(204, 0, 0, 0.6);
+}
+
+.honda-feature-list strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.right-text {
+    padding-left: 5%;
+}
+
+.left-text {
+    padding-right: 5%;
+}
+
+/* --- HOTSPOT POINTERS --- */
+.product-pulse {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(255,255,255,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-pulse::after {
+    content: '+';
+    color: #111;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1;
+    position: relative;
+    top: -1px;
+}
+
+.product-pulse::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    transform-origin: center;
+    animation: auto-radar-pulse 2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+@keyframes auto-radar-pulse {
+    0% {
+        width: 24px;
+        height: 24px;
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        width: 80px;
+        height: 80px;
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}
+
+.pointer-engine {
+    top: 55%;
+    left: 45%; /* Adjusted slightly for direct placement */
+}
+
+.pointer-suspension {
+    top: 65%;
+    right: 45%;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .hero-title { font-size: 5rem; }
+    .hero-stats { gap: 2rem; }
+    .feature-text h2 { font-size: 3rem; }
+}
+
+@media (max-width: 992px) {
+    .figma-hero-content, .feature-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-stats {
+        justify-content: center;
+    }
+    .stat-item {
+        border-left: none;
+        border-bottom: 3px solid rgba(255,255,255,0.1);
+        padding-left: 0;
+        padding-bottom: 1rem;
+    }
+    .pointer-wrapper {
+        display: none;
+    }
+    .right-text, .left-text {
+        padding: 0;
+        align-items: center;
+        margin-top: 3rem;
+    }
+    .feature-text p {
+        text-align: center;
+    }
+}
+
+/* ====== NEW REVAMPED PREMIUM LAYOUTS ====== */
+
+/* Typography */
+.revamp-header {
+    margin-bottom: 2.5rem;
+}
+.revamp-tag {
+    color: var(--honda-red);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+.revamp-tag::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: var(--honda-red);
+}
+.revamp-title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Base Features */
+.revamp-feature {
+    padding: 8rem 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 1. Tech Specs Block (For Engine) */
+.tech-specs-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.tech-spec-box {
+    background: linear-gradient(to right, rgba(255,255,255,0.05), transparent);
+    border-left: 3px solid var(--honda-red);
+    padding: 1.5rem 2rem;
+    border-radius: 0 12px 12px 0;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+.tech-spec-box:hover {
+    background: linear-gradient(to right, rgba(204,0,0,0.1), transparent);
+    transform: translateX(10px);
+}
+.tech-spec-title {
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+.tech-spec-desc {
+    color: #aaa;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* 2. Full Width Focus Layout (For Suspension) */
+.fullwidth-focus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 6rem;
+}
+.fullwidth-focus .revamp-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.fullwidth-focus .revamp-tag::before,
+.fullwidth-focus .revamp-tag::after {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: var(--honda-red);
+}
+.focus-cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1600px;
+    margin: -8rem auto 0;
+    position: relative;
+    z-index: 10;
+    padding: 0 5%;
+}
+.focus-card {
+    background: rgba(10, 10, 10, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    flex: 1;
+    text-align: left;
+    backdrop-filter: blur(15px);
+    border-top: 3px solid var(--honda-red);
+    transition: transform 0.4s ease;
+}
+.focus-card:hover {
+    transform: translateY(-15px);
+}
+.focus-card-icon {
+    font-size: 2.5rem;
+    color: var(--honda-red);
+    margin-bottom: 1.5rem;
+}
+
+/* 3. Editorial Stagger (For Design) */
+.editorial-desc {
+    font-size: 1.25rem;
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+.editorial-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.editorial-pill {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* 4. Glowing Radar Tech (For Safety) */
+.radar-bg {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(204,0,0,0.15) 0%, rgba(0,0,0,0) 60%);
+    border-radius: 50%;
+    z-index: 0;
+}
+.safety-glass-panel {
+    background: rgba(15, 15, 15, 0.8);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 3rem;
+    backdrop-filter: blur(20px);
+    position: relative;
+    z-index: 5;
+}
+.safety-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.safety-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+.safety-check {
+    color: var(--honda-red);
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+.safety-text h4 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+.safety-text p {
+    color: #999;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Adjustments for screensizes */
+@media (max-width: 1200px) {
+    .revamp-title { font-size: 3.5rem; }
+    .focus-cards-container { flex-direction: column; margin-top: 2rem; padding: 0 5%; }
+}
+@media (max-width: 768px) {
+    .revamp-title { font-size: 2.8rem; }
+    .tech-specs-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ======== INTERACTIVE TOOLTIP ======== */
+.hotspot-interactive {
+    position: absolute;
+    cursor: pointer;
+    z-index: 20;
+}
+.hotspot-interactive:hover .product-pulse {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.hotspot-tooltip {
+    position: absolute;
+    bottom: calc(100% + 20px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    background: rgba(15, 15, 15, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 3px solid var(--honda-red);
+    padding: 1.25rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    backdrop-filter: blur(15px);
+    pointer-events: none;
+    text-align: left;
+}
+.hotspot-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px 8px 0;
+    border-style: solid;
+    border-color: rgba(15, 15, 15, 0.95) transparent transparent transparent;
+}
+.hotspot-tooltip h5 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+.hotspot-tooltip p {
+    color: #aaa;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
+}

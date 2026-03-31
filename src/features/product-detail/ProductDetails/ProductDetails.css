@@ -1,0 +1,258 @@
+.product-details-page {
+    background: #000;
+    color: #fff;
+    min-height: 800vh;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+}
+
+.back-btn {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+}
+
+/* STICKY VISUAL VIEWPORT */
+.visual-viewport {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.main-bike-wrapper {
+    width: 120%;
+    display: flex;
+    justify-content: center;
+}
+
+.story-bike-img {
+    width: 100%;
+    max-width: 1600px;
+}
+
+/* INTRO HERO GRID */
+.story-intro {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    position: relative;
+    z-index: 21;
+    background: radial-gradient(circle at 70% 50%, rgba(204, 0, 0, 0.1), transparent 50%);
+}
+
+.intro-content {
+    width: 100%;
+    max-width: 1400px;
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1.8fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.badge-red {
+    background: var(--primary);
+    padding: 0.4rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 900;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    display: inline-block;
+}
+
+.title-huge {
+    font-size: 8rem;
+    font-weight: 900;
+    line-height: 0.8;
+    margin-bottom: 2.5rem;
+    font-family: var(--font-heading);
+    background: linear-gradient(to bottom, #fff 50%, #888 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.description-text {
+    font-size: 1.3rem;
+    color: #bbb;
+    line-height: 1.8;
+    margin-bottom: 4rem;
+    max-width: 500px;
+}
+
+.spec-grid-mini {
+    display: flex;
+    gap: 3rem;
+}
+
+.mini-spec {
+    border-left: 1px solid rgba(255,255,255,0.1);
+    padding-left: 2rem;
+}
+
+.mini-spec h4 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin: 0;
+}
+
+.mini-spec h4 span {
+    font-size: 1rem;
+    color: #666;
+}
+
+.mini-spec p {
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.intro-visual {
+    position: relative;
+    pointer-events: auto;
+}
+
+.drag-hint {
+    position: absolute;
+    bottom: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #444;
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ZIG-ZAG FEATURE CARDS */
+.story-segment {
+    height: 150vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    position: relative;
+    z-index: 20;
+}
+
+.story-segment.side-right { justify-content: flex-end; }
+.story-segment.side-left { justify-content: flex-start; }
+
+.segment-card {
+    max-width: 450px;
+    background: rgba(15, 15, 15, 0.6);
+    backdrop-filter: blur(30px);
+    padding: 4rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.seg-icon-circle {
+    width: 64px;
+    height: 64px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.seg-title {
+    font-size: 3.2rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 2rem;
+    font-family: var(--font-heading);
+}
+
+.seg-desc {
+    font-size: 1.25rem;
+    color: #ccc;
+    line-height: 1.8;
+}
+
+.seg-accent-line {
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    margin-top: 2.5rem;
+}
+
+/* CONCLUSION */
+.story-conclusion {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 30;
+    position: relative;
+}
+
+.conclusion-card {
+    text-align: center;
+    background: rgba(204, 0, 0, 0.05);
+    padding: 6rem;
+    border-radius: 32px;
+    border: 1px solid rgba(204, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+}
+
+.conclusion-card h2 {
+    font-size: 6rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    font-family: var(--font-heading);
+}
+
+.conclusion-card p {
+    font-size: 1.8rem;
+    color: #888;
+    margin-bottom: 4rem;
+}
+
+.book-btn-final {
+    background: var(--primary);
+    color: #fff;
+    padding: 1.5rem 5rem;
+    font-weight: 900;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 6px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 15px 40px rgba(204, 0, 0, 0.4);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .intro-grid { grid-template-columns: 1fr; }
+    .title-huge { font-size: 4.5rem; }
+}

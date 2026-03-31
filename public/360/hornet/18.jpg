@@ -1,0 +1,39 @@
+<link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
+<style>
+  div{
+    font-family: 'Noto Sans';
+  }
+
+  .bottom h2{
+    font-size:3cqh;
+  }
+    .top {
+      position: absolute;
+left: 50%; transform: translateX(-50%);  height: 10%;
+}
+    .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%; /* Set a height for vertical centering */
+}
+@media (min-width: 320px) {
+  .top img {
+  max-width: 400px;
+}
+  .container img { width: 100%;  }
+
+}
+
+@media (min-width: 1024px) {
+    .container img { width: 50% ;  }
+      .top img {
+  max-width: 200px;
+}
+
+}</style>
+<a href="https://www.motorcyclevalley.com"><div class="top"><img src="https://www.motorcyclevalley.com/images/logo.png"  alt="loading"></div></a>
+<div class="container"><img src="https://www.motorcyclevalley.com/images/crash.gif"  alt="loading"></div>
+<br>
+<div class="bottom"> <center><h2> Page Not Found. <a href="javascript:history.go(-1)">Click Here.</a></h2></center></div>
+

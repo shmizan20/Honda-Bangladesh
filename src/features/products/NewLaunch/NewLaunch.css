@@ -1,0 +1,495 @@
+/* NewLaunch.css */
+
+.new-launches-section {
+    padding: 10rem 12rem;
+    /* High contrast deep crimson to dark black */
+    background: radial-gradient(circle at 50% 50%, #2a0000 0%, #050505 100%);
+    position: relative;
+    border-top: 1px solid rgba(255, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Moving ambient light */
+.new-launches-section::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -10%;
+    width: 120%;
+    height: 160%;
+    background: radial-gradient(circle at 50% 50%, rgba(204, 0, 0, 0.15) 0%, transparent 60%);
+    animation: pulseAmbient 10s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* High-tech scanline effect to make it pop */
+.new-launches-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%);
+    z-index: 2;
+    background-size: 100% 4px;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+@keyframes pulseAmbient {
+    0% { transform: scale(1) translate(0, 0); opacity: 0.5; }
+    100% { transform: scale(1.2) translate(50px, 30px); opacity: 0.9; }
+}
+
+.launches-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 10;
+}
+
+.launches-header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.section-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.pulse-dot {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.7);
+    animation: pulseRed 2s infinite;
+}
+
+@keyframes pulseRed {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(204, 0, 0, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(204, 0, 0, 0);
+    }
+}
+
+.section-title {
+    font-size: 6rem;
+    font-family: var(--font-heading);
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: -3px;
+    line-height: 0.8;
+    background: linear-gradient(to right, #fff 0%, #aaa 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.1));
+}
+
+.slider-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: scale(1.05);
+}
+
+.launches-slider-container {
+    position: relative;
+    width: 100%;
+    /* No box, just pure floating content on the section background */
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 2rem 0;
+    min-height: 800px;
+    display: flex;
+    flex-direction: column;
+}
+
+.slider-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25rem;
+    font-weight: 900;
+    font-family: var(--font-heading);
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255, 0, 0, 0.04);
+    z-index: 1;
+    pointer-events: none;
+    white-space: nowrap;
+    text-transform: uppercase;
+    animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translate(-20%, -50%); }
+    100% { transform: translate(-80%, -50%); }
+}
+
+.slider-main-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Card goes to the left */
+    position: relative;
+    z-index: 5;
+    flex: 1;
+    padding: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.slider-main-content.animating {
+    opacity: 0;
+    transform: scale(0.98);
+}
+
+.slider-bike-wrapper {
+    position: absolute;
+    right: -5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 65%;
+    /* Take up most of the space on the right */
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-bike-img {
+    width: 100%;
+    max-width: 850px;
+    object-fit: contain;
+    filter: drop-shadow(20px 30px 40px rgba(0, 0, 0, 0.8));
+    animation: floatFloat 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatFloat {
+    0% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(15px);
+    }
+}
+
+.slider-info-card {
+    width: 48%;
+    /* Almost half the container */
+    margin-left: 2rem;
+    z-index: 5;
+}
+
+.glass-panel {
+    /* Removed glass box styling for a cleaner look */
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    overflow: visible;
+}
+
+.card-inner {
+    padding: 2rem 0;
+    /* Reduced padding since there's no box anymore */
+}
+
+.bike-badge {
+    background: var(--primary);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.name-with-badge {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.bike-name {
+    font-size: 6.5rem;
+    font-family: var(--font-heading);
+    color: #fff;
+    line-height: 0.8;
+    text-transform: uppercase;
+    font-weight: 1000;
+    white-space: nowrap;
+    background: linear-gradient(to bottom, #fff 50%, #777 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 40px rgba(255, 0, 0, 0.2));
+}
+
+.view-360-badge {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    animation: badgePulse 2s infinite ease-in-out;
+}
+
+@keyframes badgePulse {
+    0% { transform: scale(1); opacity: 0.8; box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.4); }
+    50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 10px 2px rgba(204, 0, 0, 0.2); }
+    100% { transform: scale(1); opacity: 0.8; box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.4); }
+}
+
+.bike-subtitle {
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.bike-desc {
+    color: var(--text-light);
+    opacity: 0.85;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    font-size: 1.05rem;
+}
+
+.bike-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+.spec-box {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    border-radius: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    border-left: 2px solid rgba(204, 0, 0, 0.3);
+    padding-left: 1.5rem;
+}
+
+.spec-box:hover {
+    background: transparent;
+    border-color: var(--primary);
+    transform: translateX(10px);
+    box-shadow: none;
+}
+
+.spec-box .spec-value {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+}
+
+.spec-box .unit {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-left: 2px;
+    text-transform: lowercase;
+}
+
+.spec-box .spec-label {
+    font-size: 0.75rem;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 0.8rem;
+    font-weight: 700;
+}
+
+.w-100-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+    /* Adding a subtle glow to make the button pop without being huge */
+    box-shadow: 0 8px 25px rgba(204, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.w-100-btn:hover {
+    box-shadow: 0 12px 30px rgba(204, 0, 0, 0.5);
+    transform: translateY(-2px);
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 3rem;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.dot.active {
+    background: var(--primary);
+    width: 35px;
+    border-radius: 20px;
+}
+
+/* Responsiveness */
+@media (max-width: 1200px) {
+    .new-launches-section {
+        padding: 6rem 4rem;
+    }
+
+    .launches-slider-container {
+        flex-direction: column;
+    }
+
+    .slider-main-content {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .slider-bike-wrapper {
+        position: relative;
+        width: 100%;
+        right: 0;
+        transform: none;
+        margin-bottom: -80px;
+        /* Pull the card up to overlap the bike */
+    }
+
+    .slider-bike-img {
+        width: 80%;
+    }
+
+    .slider-info-card {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .card-inner {
+        padding: 2.5rem;
+        padding-top: 5rem;
+    }
+
+    .slider-watermark {
+        top: 25%;
+        left: 50%;
+        font-size: 10rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .launches-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .slider-controls {
+        position: static;
+    }
+
+    .bike-name {
+        font-size: 2.5rem;
+    }
+
+    .bike-specs-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .slider-bike-img {
+        width: 100%;
+    }
+
+    .slider-watermark {
+        font-size: 6rem;
+    }
+
+    .new-launches-section {
+        padding: 5rem 2rem;
+    }
+}
