@@ -8,7 +8,7 @@ import NewsSection from './components/NewsSection';
 import MediaSection from './components/MediaSection';
 import DealerSection from '../../features/dealer-locator/DealerSection';
 
-const Home = ({ onExplore }) => {
+const Home = ({ onExplore, onNavigateProducts }) => {
     const videoRef = useRef(null);
 
     useEffect(() => {
@@ -59,11 +59,15 @@ const Home = ({ onExplore }) => {
                         <button 
                             className="btn-primary" 
                             style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
-                            onClick={() => onExplore({ name: 'HORNET 2.0', badge: 'Street Fighter' })}
+                            onClick={() => onNavigateProducts()}
                         >
-                            Explore Model <ChevronRight size={18} />
+                            Explore Models <ChevronRight size={18} />
                         </button>
-                        <button className="btn-outline" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <button 
+                            className="btn-outline" 
+                            style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+                            onClick={() => document.getElementById('media')?.scrollIntoView({ behavior: 'smooth' })}
+                        >
                             <Play size={18} /> View Video
                         </button>
                     </div>

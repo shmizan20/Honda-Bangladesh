@@ -19,6 +19,21 @@ const ProductDetails = ({ bike, onBack }) => {
         window.scrollTo(0, 0);
     }, []);
 
+    useEffect(() => {
+        // Close tooltip on outside click
+        const handleClickOutside = (event) => {
+            if (activeTooltip && !event.target.closest('.hotspot-interactive')) {
+                setActiveTooltip(null);
+            }
+        };
+
+        // Use capture phase to handle clicks before React's synthetic events
+        document.addEventListener('click', handleClickOutside, true);
+        return () => {
+            document.removeEventListener('click', handleClickOutside, true);
+        };
+    }, [activeTooltip]);
+
     if (!bike) return null;
 
     return (
@@ -156,11 +171,11 @@ const ProductDetails = ({ bike, onBack }) => {
                             <div 
                                 className="hotspot-interactive" 
                                 style={{ top: '42%', left: '50%' }}
-                                onClick={() => setActiveTooltip(activeTooltip === 's2_pgmfi' ? null : 's2_pgmfi')}
+                                onClick={(e) => { e.stopPropagation(); setActiveTooltip(activeTooltip === 's2_pgmfi' ? null : 's2_pgmfi'); }}
                             >
                                 <div className="product-pulse"></div>
                                 {activeTooltip === 's2_pgmfi' && (
-                                    <motion.div className="hotspot-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                                    <motion.div className="hotspot-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} onClick={(e) => e.stopPropagation()}>
                                         <h5>PGM-Fi System</h5>
                                         <p>Smart sensors on fuel tank instantly optimize fuel mix for performance.</p>
                                     </motion.div>
@@ -169,11 +184,11 @@ const ProductDetails = ({ bike, onBack }) => {
                             <div 
                                 className="hotspot-interactive" 
                                 style={{ top: '68%', left: '42%' }}
-                                onClick={() => setActiveTooltip(activeTooltip === 's2_engine' ? null : 's2_engine')}
+                                onClick={(e) => { e.stopPropagation(); setActiveTooltip(activeTooltip === 's2_engine' ? null : 's2_engine'); }}
                             >
                                 <div className="product-pulse"></div>
                                 {activeTooltip === 's2_engine' && (
-                                    <motion.div className="hotspot-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                                    <motion.div className="hotspot-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} onClick={(e) => e.stopPropagation()}>
                                         <h5>184cc HET Engine</h5>
                                         <p>Central high-torque engine core designed for raw street dominance.</p>
                                     </motion.div>
@@ -213,11 +228,11 @@ const ProductDetails = ({ bike, onBack }) => {
                     <div 
                         className="hotspot-interactive" 
                         style={{ top: '23%', left: '38%' }}
-                        onClick={() => setActiveTooltip(activeTooltip === 's3_meter' ? null : 's3_meter')}
+                        onClick={(e) => { e.stopPropagation(); setActiveTooltip(activeTooltip === 's3_meter' ? null : 's3_meter'); }}
                     >
                         <div className="product-pulse"></div>
                         {activeTooltip === 's3_meter' && (
-                            <motion.div className="hotspot-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                            <motion.div className="hotspot-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} onClick={(e) => e.stopPropagation()}>
                                 <h5>Digital Console</h5>
                                 <p>Integrated liquid crystal display for all vital ride diagnostics.</p>
                             </motion.div>
@@ -226,11 +241,11 @@ const ProductDetails = ({ bike, onBack }) => {
                     <div 
                         className="hotspot-interactive" 
                         style={{ top: '56.5%', left: '32%' }}
-                        onClick={() => setActiveTooltip(activeTooltip === 's3_suspension' ? null : 's3_suspension')}
+                        onClick={(e) => { e.stopPropagation(); setActiveTooltip(activeTooltip === 's3_suspension' ? null : 's3_suspension'); }}
                     >
                         <div className="product-pulse"></div>
                         {activeTooltip === 's3_suspension' && (
-                            <motion.div className="hotspot-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                            <motion.div className="hotspot-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} onClick={(e) => e.stopPropagation()}>
                                 <h5>Golden USD Forks</h5>
                                 <p>Premium upside-down front forks for absolute precision and stability.</p>
                             </motion.div>
@@ -239,11 +254,11 @@ const ProductDetails = ({ bike, onBack }) => {
                     <div 
                         className="hotspot-interactive" 
                         style={{ top: '78%', left: '52%' }}
-                        onClick={() => setActiveTooltip(activeTooltip === 's3_chain' ? null : 's3_chain')}
+                        onClick={(e) => { e.stopPropagation(); setActiveTooltip(activeTooltip === 's3_chain' ? null : 's3_chain'); }}
                     >
                         <div className="product-pulse"></div>
                         {activeTooltip === 's3_chain' && (
-                            <motion.div className="hotspot-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                            <motion.div className="hotspot-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} onClick={(e) => e.stopPropagation()}>
                                 <h5>Seal Chain</h5>
                                 <p>Low-maintenance durable chain designed for smooth power delivery.</p>
                             </motion.div>
@@ -308,11 +323,11 @@ const ProductDetails = ({ bike, onBack }) => {
                             <div 
                                 className="hotspot-interactive" 
                                 style={{ top: '35%', left: '10%' }}
-                                onClick={() => setActiveTooltip(activeTooltip === 's4_taillight' ? null : 's4_taillight')}
+                                onClick={(e) => { e.stopPropagation(); setActiveTooltip(activeTooltip === 's4_taillight' ? null : 's4_taillight'); }}
                             >
                                 <div className="product-pulse"></div>
                                 {activeTooltip === 's4_taillight' && (
-                                    <motion.div className="hotspot-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                                    <motion.div className="hotspot-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} onClick={(e) => e.stopPropagation()}>
                                         <h5>X-Shaped LED Taillight</h5>
                                         <p>Distinctive tail lamp clearly visible at the top-rear.</p>
                                     </motion.div>
@@ -321,11 +336,11 @@ const ProductDetails = ({ bike, onBack }) => {
                             <div 
                                 className="hotspot-interactive" 
                                 style={{ top: '60%', left: '46%' }}
-                                onClick={() => setActiveTooltip(activeTooltip === 's4_engine' ? null : 's4_engine')}
+                                onClick={(e) => { e.stopPropagation(); setActiveTooltip(activeTooltip === 's4_engine' ? null : 's4_engine'); }}
                             >
                                 <div className="product-pulse"></div>
                                 {activeTooltip === 's4_engine' && (
-                                    <motion.div className="hotspot-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                                    <motion.div className="hotspot-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} onClick={(e) => e.stopPropagation()}>
                                         <h5>Engine Block</h5>
                                         <p>Centered on the actual engine unit for precise identification.</p>
                                     </motion.div>
@@ -425,11 +440,11 @@ const ProductDetails = ({ bike, onBack }) => {
                             <div 
                                 className="hotspot-interactive" 
                                 style={{ top: '75%', right: '15%', left: 'auto' }}
-                                onClick={() => setActiveTooltip(activeTooltip === 's5_abs' ? null : 's5_abs')}
+                                onClick={(e) => { e.stopPropagation(); setActiveTooltip(activeTooltip === 's5_abs' ? null : 's5_abs'); }}
                             >
                                 <div className="product-pulse"></div>
                                 {activeTooltip === 's5_abs' && (
-                                    <motion.div className="hotspot-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                                    <motion.div className="hotspot-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} onClick={(e) => e.stopPropagation()}>
                                         <h5>Single Channel ABS</h5>
                                         <p>ABS sensor ring and braking system for non-lock performance.</p>
                                     </motion.div>
@@ -438,11 +453,11 @@ const ProductDetails = ({ bike, onBack }) => {
                             <div 
                                 className="hotspot-interactive" 
                                 style={{ top: '22%', right: '50%', left: 'auto' }}
-                                onClick={() => setActiveTooltip(activeTooltip === 's5_console' ? null : 's5_console')}
+                                onClick={(e) => { e.stopPropagation(); setActiveTooltip(activeTooltip === 's5_console' ? null : 's5_console'); }}
                             >
                                 <div className="product-pulse"></div>
                                 {activeTooltip === 's5_console' && (
-                                    <motion.div className="hotspot-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                                    <motion.div className="hotspot-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} onClick={(e) => e.stopPropagation()}>
                                         <h5>Integrated Command Center</h5>
                                         <p>Close-up of the LCD console with all vital ride diagnostics.</p>
                                     </motion.div>

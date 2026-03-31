@@ -16,29 +16,51 @@ function App() {
     const [currentView, setCurrentView] = useState('home'); // 'home' | 'details' | 'products'
     const [selectedBike, setSelectedBike] = useState(null);
 
-    // Navigation and scroll effects
+    // History/Back-button handling
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
         };
+
+        const handlePopState = (event) => {
+            if (event.state) {
+                setCurrentView(event.state.view || 'home');
+                setSelectedBike(event.state.bike || null);
+            } else {
+                setCurrentView('home');
+                setSelectedBike(null);
+            }
+        };
+
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener('popstate', handlePopState);
+        
+        // Initial state set
+        window.history.replaceState({ view: 'home', bike: null }, '');
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('popstate', handlePopState);
+        };
     }, []);
 
     // Handlers
     const handleExplore = (bike) => {
         setSelectedBike(bike);
         setCurrentView('details');
+        window.history.pushState({ view: 'details', bike }, '');
         window.scrollTo(0, 0);
     };
 
     const handleBack = () => {
         setCurrentView('home');
+        window.history.pushState({ view: 'home', bike: null }, '');
         window.scrollTo(0, 0);
     };
 
     const handleNavigateProducts = () => {
         setCurrentView('products');
+        window.history.pushState({ view: 'products', bike: null }, '');
         window.scrollTo(0, 0);
     };
 
@@ -55,7 +77,10 @@ function App() {
 
             <main>
                 {currentView === 'home' && (
-                    <Home onExplore={handleExplore} />
+                    <Home 
+                        onExplore={handleExplore} 
+                        onNavigateProducts={handleNavigateProducts}
+                    />
                 )}
                 
                 {currentView === 'products' && (
