@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, Search, Filter } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import './ProductsPage.css';
+import './ProductsListPage.css';
 
 import { PRODUCT_MODELS } from '../../constants/products';
 
