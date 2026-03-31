@@ -47,7 +47,7 @@ const MediaSection = () => {
                     className="media-header"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false, amount: 0.2 }}
                     transition={{ duration: 0.8 }}
                 >
                     <h4 className="media-subtitle">Media Center</h4>
@@ -62,7 +62,7 @@ const MediaSection = () => {
                         className="media-main-video"
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <div className="video-player-wrapper" onClick={() => {
@@ -99,7 +99,7 @@ const MediaSection = () => {
                                 }}
                                 initial={{ opacity: 0, x: 30 }}
                                 whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: false, amount: 0.2 }}
                                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                             >
                                 <div className="playlist-thumb-wrapper">

@@ -20,7 +20,7 @@ const TopModels = ({ onExplore }) => {
                 className="section-header"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: false, amount: 0.15 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
                 <div>
@@ -50,7 +50,8 @@ const TopModels = ({ onExplore }) => {
                             layout
                             className={`model-card size-${model.size}`}
                             initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: false, amount: 0.1 }}
                             exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
                             onClick={() => onExplore(model)}
                             style={{ cursor: 'pointer' }}
@@ -76,7 +77,8 @@ const TopModels = ({ onExplore }) => {
                             <motion.div
                                 className="card-image-wrapper"
                                 initial={{ x: 20, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
+                                whileInView={{ x: 0, opacity: 1 }}
+                                viewport={{ once: false }}
                                 transition={{
                                     type: "spring",
                                     stiffness: 50,

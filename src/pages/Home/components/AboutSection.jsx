@@ -38,7 +38,7 @@ const AboutSection = () => {
                         className="about-content"
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <h4 className="about-subtitle">The Power of Dreams</h4>
@@ -61,7 +61,7 @@ const AboutSection = () => {
                                     className="stat-card"
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
+                                    viewport={{ once: false, amount: 0.2 }}
                                     transition={{ duration: 0.5, delay: idx * 0.1 }}
                                 >
                                     <div className="stat-icon" style={{ color: 'var(--primary)' }}>
@@ -86,7 +86,7 @@ const AboutSection = () => {
                             }}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false, amount: 0.2 }}
                             transition={{ duration: 0.5, delay: 0.6 }}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
@@ -99,7 +99,7 @@ const AboutSection = () => {
                         className="about-image-side"
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <div className="about-image-wrapper">

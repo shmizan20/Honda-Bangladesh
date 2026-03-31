@@ -40,7 +40,7 @@ const SafetySection = () => {
                         className="safety-content-side"
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.2 }}
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <h4 className="safety-subtitle">Social Commitment</h4>
@@ -59,7 +59,7 @@ const SafetySection = () => {
                                 className="pillar-premium-card"
                                 initial={{ opacity: 0, x: 50, y: 20 }}
                                 whileInView={{ opacity: 1, x: 0, y: 0 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: false, amount: 0.2 }}
                                 transition={{ duration: 0.8, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
                             >
                                 <span className="pillar-badge">{pillar.badge}</span>
